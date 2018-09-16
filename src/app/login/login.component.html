@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col" align="center">
+
+      <div *ngIf="!isLoggedIn" class="ex1">
+        <h1>In order to use this app you need to be registered</h1>
+        <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+            <div class="form-group">
+
+              <label for="username">User Name:
+                <input type="text" class="form-control" formControlName="username" />
+              </label>
+
+              <br>
+
+              <label for="password">Password:
+                <input type="password" class="form-control" formControlName="password" />
+              </label>
+
+              <div class="alert" *ngIf="!rForm.controls['username'].valid && rForm.controls['username'].touched">
+                <span class="wrongInput">User Name is required</span>
+              </div>
+              <div class="alert" *ngIf="! rForm.controls['password'].valid && rForm.controls['password'].touched">
+                <span class="wrongInput">Password is not valid</span>
+              </div>
+              <div *ngIf="errorFound" class="wrongInput">
+                <span>{{errorMessage}}</span>
+              </div>
+              <br>
+              <input type="submit" class="button expanded" value="Submit Form" [disabled]="!rForm.valid">
+            </div>
+        </form>
+      </div>
+
+      <div *ngIf="isLoggedIn" align="center" class="divmin">
+        <br><br>
+        <h3>Hello user {{user}}. You are already logged in with <span style="color:red"> {{role}} </span> privileges. </h3>        
+        <button type="button" class="btn btn-primary" (click)="logout()">Log Out</button>
+        <br><br><br><br>
+      </div>
+
+    </div>
+  </div>
+
+</div>

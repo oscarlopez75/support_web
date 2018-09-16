@@ -1,0 +1,230 @@
+<div class="container">
+  <div class="row align-items-center justify-content-center">
+    <h3>
+      Jira Asia Check Point
+    </h3>
+  </div>
+</div>
+
+
+
+<div class="container somePaddingTop">
+  <div *ngIf="!showLoadingComponent" class="row align-items-center justify-content-center">
+    <h4>
+      {{textToShow}}
+    </h4>
+
+  </div>
+  <div *ngIf="!showLoadingComponent" class="row align-items-center justify-content-center">
+    <div class="container center">
+      <h3><a href="{{jiraAsiaLink}}" target="_blank">{{jiraAsiaLink}}</a></h3>
+    </div>
+    <br>
+  </div>
+  <div *ngIf="showLoadingComponent" class="container intro">
+    <div class="row">
+      <div class="col" align="center">
+        <h1>Loading Components, please wait</h1>
+        <div class="loader"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <br>
+</div>
+<!-- **************************************************************Containers with issues ***************************************************************************************************** -->
+<!-- ****************************************************************************************************************************************************************************************** -->
+
+<div class="container double">
+
+  <div *ngIf="showLoadingComponent2" class="center  ">
+    <div class="row">
+      <div class="col" align="center">
+        <h1>Loading Components, please wait</h1>
+        <div class="loader"></div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!showLoadingComponent2" class="center">
+    <div class="container-fluid">
+      <h2>{{totalEmergency}} Emergency</h2>
+    </div>
+    <div class="container-fluid">
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Summary</th>
+              <th scope="col">Link</th>
+              <th scope="col">Assignee</th>
+              <th scope="col">Reporter</th>
+              <th scope="col">Status</th>
+              <th scope="col">Last Updated</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of emergency">
+              <th scope="row">{{item.summary}}</th>
+              <td><a href="{{item.link}}" target="_blank">{{item.link}}</a></td>
+              <td>{{item.assignee}}</td>
+              <td>{{item.reporter}}</td>
+              <td [ngClass]="item.status == 'Resolved' ? 'positive':'negative'">{{item.status}}</td>
+              <td>{{convertToHours(item.lastUpdated)}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+  <br>
+</div>
+
+<div class="container double">
+
+  <div *ngIf="showLoadingComponent2" class="center  ">
+    <div class="row">
+      <div class="col" align="center">
+        <h1>Loading Components, please wait</h1>
+        <div class="loader"></div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!showLoadingComponent2" class="center">
+    <div class="container-fluid  ">
+      <h2>{{totalCritical}} Critical</h2>
+    </div>
+    <div class="container-fluid  ">
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Summary</th>
+              <th scope="col">Link</th>
+              <th scope="col">Assignee</th>
+              <th scope="col">Reporter</th>
+              <th scope="col">Status</th>
+              <th scope="col">Last Updated</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of critical">
+              <th scope="row">{{item.summary}}</th>
+              <td><a href="{{item.link}}" target="_blank">{{item.link}}</a></td>
+              <td>{{item.assignee}}</td>
+              <td>{{item.reporter}}</td>
+              <td [ngClass]="item.status == 'Resolved' ? 'positive':'negative'">{{item.status}}</td>
+              <td>{{convertToHours(item.lastUpdated)}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+  <br>
+</div>
+
+<div class="container double">
+
+  <div *ngIf="showLoadingComponent2" class="center  ">
+    <div class="row">
+      <div class="col" align="center">
+        <h1>Loading Components, please wait</h1>
+        <div class="loader"></div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!showLoadingComponent2" class="center  ">
+    <div class="container-fluid  ">
+      <h2>{{totalMajor}} Major</h2>
+    </div>
+    <div class="container-fluid  ">
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Summary</th>
+              <th scope="col">Link</th>
+              <th scope="col">Assignee</th>
+              <th scope="col">Reporter</th>
+              <th scope="col">Status</th>
+              <th scope="col">Last Updated</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of major">
+              <th scope="row">{{item.summary}}</th>
+              <td><a href="{{item.link}}" target="_blank">{{item.link}}</a></td>
+              <td>{{item.assignee}}</td>
+              <td>{{item.reporter}}</td>
+              <td [ngClass]="item.status == 'Resolved' ? 'positive':'negative'">{{item.status}}</td>
+              <td>{{convertToHours(item.lastUpdated)}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+  <br>
+</div>
+
+<div class="container double">
+
+  <div *ngIf="showLoadingComponent2" class="center  ">
+    <div class="row">
+      <div class="col" align="center">
+        <h1>Loading Components, please wait</h1>
+        <div class="loader"></div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!showLoadingComponent2" class="center  ">
+    <div class="container-fluid  ">
+      <h2>{{totalMedium}} Medium</h2>
+    </div>
+    <div class="container-fluid  ">
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Summary</th>
+              <th scope="col">Link</th>
+              <th scope="col">Assignee</th>
+              <th scope="col">Reporter</th>
+              <th scope="col">Status</th>
+              <th scope="col">Last Updated</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of medium">
+              <th scope="row">{{item.summary}}</th>
+              <td><a href="{{item.link}}" target="_blank">{{item.link}}</a></td>
+              <td>{{item.assignee}}</td>
+              <td>{{item.reporter}}</td>
+              <td [ngClass]="item.status == 'Resolved' ? 'positive':'negative'">{{item.status}}</td>
+              <td>{{convertToHours(item.lastUpdated)}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+  <br>
+</div>

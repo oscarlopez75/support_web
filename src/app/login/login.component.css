@@ -1,0 +1,13 @@
+div.ex1 {
+    width:50%;
+    margin: auto;
+}
+
+
+.wrongInput{
+  color: red;
+}
+
+.divmin{
+  min-height: 400px;
+}

@@ -1,0 +1,33 @@
+.divMainMin{
+  padding-top: 3px;
+}
+
+.center {
+    /* margin: auto; */
+    width: 50%;
+    /* border: 3px solid green; */
+    padding: 10px;
+    text-align: center;
+}
+
+.centery{
+  text-align: center;
+}
+
+.lefty {
+    /* margin: auto; */
+    width: 50%;
+    /* border: 3px solid green; */
+    padding: 10px;
+    text-align: left;
+}
+
+.responsive {
+    width: 100%;
+    height: auto;
+}
+
+
+.debug{
+  border: 3px solid green;
+}

@@ -1,0 +1,43 @@
+<app-nav></app-nav>
+
+<mat-drawer-container class="example-container back" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="cover"> <!-- use cover -->
+    <button type="button" mat-raised-button (click)="drawer.toggle(); menuClick()">
+      CLose Tool Menu
+    </button>
+    <a class="nav-link" [routerLink]="['/bugbusters']" (click)="drawer.toggle(); menuClick()">BugBusters</a>
+    <a class="nav-link" [routerLink]="['/home']" (click)="drawer.toggle(); menuClick()">Main Page</a>
+    <a class="nav-link" [routerLink]="['/home']" (click)="drawer.toggle(); menuClick()">Another Link</a>
+    <a class="nav-link" [routerLink]="['/home']" (click)="drawer.toggle(); menuClick()">Another Link</a>
+
+    <p (click)="showFiller = !showFiller" mat-raised-button>
+      <span *ngIf="showFiller" class="pointer">Close Jira Info:</span>
+      <span *ngIf="!showFiller" class="pointer">Open Jira Info:</span>
+    </p>
+    <a *ngIf="showFiller" class="nav-link" [routerLink]="['/jira']" (click)="drawer.toggle(); menuClick()">Outdated issues</a>
+    <a *ngIf="showFiller" class="nav-link" [routerLink]="['/jiraasia']" (click)="drawer.toggle(); menuClick()">Asian opened issues</a>
+
+
+
+
+    <p (click)="showFiller2 = !showFiller2" mat-raised-button>
+      <span *ngIf="showFiller2" class="pointer">Close option 2:</span>
+      <span *ngIf="!showFiller2" class="pointer">Open Option 2:</span>
+    </p>
+    <!-- <p *ngIf="showFiller2">Link from option above.</p> -->
+    <a *ngIf="showFiller2" class="nav-link" [routerLink]="['/home']" (click)="drawer.toggle(); menuClick()">Another Link</a>
+  </mat-drawer>
+
+
+
+  <div class="example-sidenav-content divmin" *ngIf="isLogged()">
+    <button type="button" class="divmin" mat-raised-button (click)="drawer.toggle(); menuClick()" *ngIf='showMenuButton'>
+      Open Tool Menu
+    </button>
+  </div>
+
+<router-outlet></router-outlet>
+</mat-drawer-container>
+
+<!-- <router-outlet></router-outlet> -->
+<app-footer></app-footer>
